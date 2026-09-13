@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Muntaha ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<style>
+  :root {
+    --bg-red: #d9383a;
+    --card-cream: #fff9ea;
+    --btn-red: #e02424;
+    --text-dark: #4a2810;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7dede;
+    background-image: 
+      linear-gradient(90deg, rgba(217,56,58,0.18) 50%, transparent 50%),
+      linear-gradient(rgba(217,56,58,0.18) 50%, transparent 50%);
+    background-size: 32px 32px;
+    padding: 16px;
+    overflow-x: hidden;
+  }
+
+  .music-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    background: #fff;
+    border: 2px solid var(--bg-red);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .card-container {
+    width: 100%;
+    max-width: 430px;
+    min-height: 520px;
+    background: var(--card-cream);
+    border: 8px solid #ffcc66;
+    border-radius: 28px;
+    box-shadow: 0 16px 35px rgba(0,0,0,0.18), inset 0 0 0 4px #e5a93c;
+    padding: 24px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .step {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .step.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  h1 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--bg-red);
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .shinchan-img {
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+    margin: 10px auto 14px;
+    border-radius: 12px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    min-height: 50px;
+    position: relative;
+  }
+
+  .btn {
+    font-family: 'Fredoka One', cursive;
+    background: var(--btn-red);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #991b1b;
+  }
+
+  .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #991b1b;
+  }
+
+  .btn-no {
+    background: #6b7280;
+    box-shadow: 0 4px 0 #4b5563;
+    transition: transform 0.15s ease;
+  }
+
+  .gifts-grid {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 15px 0;
+  }
+
+  .gift-box {
+    font-size: 2.8rem;
+    cursor: pointer;
+    background: #fff;
+    border: 3px dashed var(--bg-red);
+    border-radius: 18px;
+    padding: 10px 14px;
+    transition: transform 0.2s;
+  }
+
+  .gift-box:active {
+    transform: scale(1.15) rotate(6deg);
+  }
+
+  .gift-msg {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #b91c1c;
+    min-height: 48px;
+    margin-top: 8px;
+  }
+
+  .cake-area {
+    position: relative;
+    margin: 15px auto;
+    font-size: 4.8rem;
+    cursor: pointer;
+  }
+
+  .flame {
+    position: absolute;
+    top: -5px;
+    left: 48%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    animation: flicker 0.5s infinite alternate;
+  }
+
+  @keyframes flicker {
+    from { filter: drop-shadow(0 0 4px gold); }
+    to { filter: drop-shadow(0 0 10px orange); }
+  }
+
+  .letter-box {
+    background: #ffffff;
+    border: 2px dashed #f59e0b;
+    border-radius: 16px;
+    padding: 16px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.35rem;
+    line-height: 1.45;
+    color: #4a2810;
+    text-align: left;
+    margin: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    max-height: 270px;
+    overflow-y: auto;
+  }
+
+  .memories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+    width: 100%;
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .photo-frame {
+    background: #fff;
+    padding: 6px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .photo-frame p {
+    font-size: 0.82rem;
+    margin: 6px 0 2px;
+    color: #78350f;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://files.catbox.moe/ouwkm6.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
+
+<div class="card-container">
+
+  <div class="step active" id="step1">
+    <h1>I have made something for you 💌</h1>
+    <img src="https://files.catbox.moe/xlfm13.gif" class="shinchan-img" alt="Shinchan Dancing">
+    <p>Do you wanna see it, Muntaha?</p>
+    <div class="btn-row">
+      <button class="btn" onclick="nextStep(2)">YES 💕</button>
+      <button class="btn btn-no" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">NO 😜</button>
+    </div>
+  </div>
+
+  <div class="step" id="step2">
+    <h1>Are you really excited? 😍</h1>
+    <img src="https://files.catbox.moe/nsxa1j.gif" class="shinchan-img" alt="Shinchan Excited">
+    <p>Because Suhaib has a big surprise waiting for you!</p>
+    <div class="btn-row">
+      <button class="btn" onclick="nextStep(3)">YESSS! 🥰</button>
+      <button class="btn" onclick="nextStep(3)">OF COURSE! 💖</button>
+    </div>
+  </div>
+
+  <div class="step" id="step3">
+    <h1>Each gift has a surprise 🎁</h1>
+    <p>Tap on the gift boxes to open them!</p>
+    <div class="gifts-grid">
+      <div class="gift-box" onclick="openGift(1)">🎁</div>
+      <div class="gift-box" onclick="openGift(2)">🎁</div>
+      <div class="gift-box" onclick="openGift(3)">🎁</div>
+    </div>
+    <div class="gift-msg" id="giftMsg">Click any gift above ✨</div>
+    <div class="btn-row">
+      <button class="btn" onclick="nextStep(4)">Let's Cut The Cake 🎂</button>
+    </div>
+  </div>
+
+  <div class="step" id="step4">
+    <h1>MAKE A WISH 🎂</h1>
+    <p>Tap the candle flame to blow it out!</p>
+    <div class="cake-area" onclick="blowCandle()">
+      <span class="flame" id="flame">🔥</span>
+      🎂
+    </div>
+    <p id="wishStatus" style="color: #d9383a; font-weight: bold;">(Tap on the cake!)</p>
+    <div class="btn-row">
+      <button class="btn" id="cakeNextBtn" style="display:none;" onclick="nextStep(5)">Read My Letter 💌</button>
+    </div>
+  </div>
+
+  <div class="step" id="step5">
+    <h1>To My Muntaha ❤️</h1>
+    <div class="letter-box">
+      Happy birthday my love, am sorry agr mai nai koi kabi glti ki. I really love you. Apnay birthday kia saath saath hum life b start kray gai, even in our bad time we have to stay together my love. I will change for you forever cox you are my wife, and happy birthday day to my wife ❤️<br><br>
+      Forever yours,<br>
+      <strong>Suhaib</strong>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="nextStep(6); startCelebration();">See Our Memories 📸</button>
+    </div>
+  </div>
+
+  <div class="step" id="step6">
+    <h1>Our Special Memories 🎀</h1>
+    <p>My Favorite Person in the World</p>
+    
+    <div class="memories-grid">
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/mCKhmNK0/Snapchat-1458598779.jpg" alt="Holding Hands">
+        <p>Holding Hands ✨</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/wFP8JGT7/Snapchat-1821942785.jpg" alt="Always Together">
+        <p>Always Together ❤️</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/nMnhJ6BW/Snapchat-509150186.jpg" alt="The Prettiest">
+        <p>The Prettiest 🌸</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/yFGDyHJB/Screenshot-20260902-191055-Video-Player.jpg" alt="Special Memory">
+        <p>My Favorite 💫</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/XfqXbhcM/Screenshot-20260902-191114-Video-Player.jpg" alt="Us Together">
+        <p>Pure Love 💖</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/kvyxsWc/Snapchat-1423797117.jpg" alt="Cute Moment">
+        <p>Precious Smile 🌹</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/TzSRfr4/Snapchat-796599129.jpg" alt="Birthday Special">
+        <p>Special Day 🎂</p>
+      </div>
+      <div class="photo-frame">
+        <img src="https://i.ibb.co/prM3jn50/Snapchat-66240179.jpg" alt="Forever">
+        <p>Forever & Always 💍</p>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" onclick="startCelebration()">More Confetti! 🎉</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  let musicStarted = false;
+
+  function playCustomSong() {
+    if (!musicStarted) {
+      music.play().then(() => {
+        musicStarted = true;
+      }).catch(() => {});
+    }
+  }
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      musicStarted = true;
+    } else {
+      music.pause();
+    }
+  }
+
+  function nextStep(stepNumber) {
+    playCustomSong();
+    document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+    document.getElementById('step' + stepNumber).classList.add('active');
+  }
+
+  function dodgeNo() {
+    playCustomSong();
+    const btn = document.getElementById('noBtn');
+    const x = Math.floor(Math.random() * 160) - 80;
+    const y = Math.floor(Math.random() * 100) - 50;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  const messages = [
+    "🎁 Gift 1: Unlimited hugs and love forever! 🥰",
+    "🎁 Gift 2: My entire heart, only reserved for you! 💖",
+    "🎁 Gift 3: Suhaib's lifetime promise to stand by Muntaha! ✨"
+  ];
+
+  function openGift(index) {
+    playCustomSong();
+    document.getElementById('giftMsg').innerText = messages[index - 1];
+    confetti({ particleCount: 35, spread: 60, origin: { y: 0.6 } });
+  }
+
+  function blowCandle() {
+    playCustomSong();
+    document.getElementById('flame').style.display = 'none';
+    document.getElementById('wishStatus').innerText = '🎉 Happy Birthday Muntaha! Wish Granted! 🎉';
+    document.getElementById('cakeNextBtn').style.display = 'inline-block';
+    confetti({ particleCount: 75, spread: 70, origin: { y: 0.5 } });
+  }
+
+  function startCelebration() {
+    confetti({ particleCount: 110, spread: 90, origin: { y: 0.5 } });
+  }
+
+  document.addEventListener('touchstart', playCustomSong, { once: true });
+  document.addEventListener('click', playCustomSong, { once: true });
+</script>
+
+</body>
+</html>
